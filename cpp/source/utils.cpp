@@ -1,7 +1,5 @@
 #include "utils.h"
 
-int myrandom (int i) { return std::rand()%i; }
-
 long unsigned StartClock() {
     timeval time;
     gettimeofday(&time, NULL);

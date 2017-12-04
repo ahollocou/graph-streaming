@@ -10,7 +10,6 @@
 #include <fstream>
 #include "types.h"
 
-int myrandom (int i);
 long unsigned StartClock();
 long unsigned StopClock(long unsigned initTime);
 int LoadGraph(char * graphFileName,
