@@ -8,6 +8,8 @@
 #include <set>
 #include <algorithm>
 #include <string>
+#include <ctime>
+#include <random>
 #include "types.h"
 #include "utils.h"
 
@@ -58,9 +60,10 @@ int StreamComAlgo(const std::vector< Edge >& edgeList,
                  uint32_t randSeed=0
                  ) {
     // Random shuffle
-    std::srand(randSeed); // use current time as seed for random generator
+    std::mt19937_64 rand_engine(randSeed);
+
     std::vector< Edge > shuffledEdgeList (edgeList);
-    std::random_shuffle(shuffledEdgeList.begin(), shuffledEdgeList.end(), myrandom);
+    std::shuffle(shuffledEdgeList.begin(), shuffledEdgeList.end(), rand_engine);
     // Aggregation
     std::vector< uint32_t > nextCommunityIdList (maxVolumeList.size(), 1);
     for (Edge edge : shuffledEdgeList) {
@@ -194,7 +197,7 @@ int main(int argc, char ** argv) {
         }
         std::vector< uint32_t > nodeDegree (maxNodeId + 1);
         std::vector< std::vector< uint32_t > > nodeCommunityList (volumeThresholdList.size(), std::vector< uint32_t > (maxNodeId + 1, 0));
-        std::vector< std::vector< uint32_t > > communityVolumeList (volumeThresholdList.size(), std::vector< uint32_t > (maxNodeId + 1, 0));
+        std::vector< std::vector< uint32_t > > communityVolumeList (volumeThresholdList.size(), std::vector< uint32_t > (maxNodeId + 2, 0));
 
         //=================== ALGORITHM  =======================================
         printf("Start algorithm...\n");

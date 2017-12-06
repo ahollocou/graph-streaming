@@ -1,7 +1,5 @@
 #include "utils.h"
 
-int myrandom (int i) { return std::rand()%i; }
-
 long unsigned StartClock() {
     timeval time;
     gettimeofday(&time, NULL);
@@ -85,7 +83,7 @@ int PrintPartition(const char* fileName,
     return 0;
 }
 
-int GetCommunities(const std::vector< uint32_t > nodeCommunity,
+int GetCommunities(const std::vector< uint32_t >& nodeCommunity,
                    Node maxNodeId,
                    std::map< uint32_t, std::set< Node > >& communities) {
     for (Node i = 0; i <= maxNodeId; i++) {
