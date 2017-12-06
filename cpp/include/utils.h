@@ -27,7 +27,7 @@ int PrintStats(const char* fileName,
                uint32_t nbRuns,
                std::vector< uint32_t > nbCommunities,
                std::vector< unsigned long > executionTimes);
-int GetCommunities(const std::vector< uint32_t > nodeCommunity,
+int GetCommunities(const std::vector< uint32_t >& nodeCommunity,
                    Node maxNodeId,
                    std::map< uint32_t, std::set< Node > >& communities);
 
