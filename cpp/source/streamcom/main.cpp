@@ -197,7 +197,7 @@ int main(int argc, char ** argv) {
         }
         std::vector< uint32_t > nodeDegree (maxNodeId + 1);
         std::vector< std::vector< uint32_t > > nodeCommunityList (volumeThresholdList.size(), std::vector< uint32_t > (maxNodeId + 1, 0));
-        std::vector< std::vector< uint32_t > > communityVolumeList (volumeThresholdList.size(), std::vector< uint32_t > (maxNodeId + 1, 0));
+        std::vector< std::vector< uint32_t > > communityVolumeList (volumeThresholdList.size(), std::vector< uint32_t > (maxNodeId + 2, 0));
 
         //=================== ALGORITHM  =======================================
         printf("Start algorithm...\n");
